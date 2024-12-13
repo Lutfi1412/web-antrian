@@ -19,13 +19,13 @@ const HomePage = () => {
           </div>
           <div className="row gx-5">
             <div className="col-lg-6 mb-4">
-              <CardHome to="/login/nomor" children2="Nomor Antrian">
+              <CardHome to="/pages/nomor" children2="Nomor Antrian">
                 Halaman Nomor Antrian digunakan pengunjung untuk mengambil nomor
                 antrian.
               </CardHome>
             </div>
             <div className="col-lg-6 mb-4">
-              <CardHome to="/login/panggilan" children2="Panggilan Antrian">
+              <CardHome to="/pages/panggilan" children2="Panggilan Antrian">
                 Halaman Panggilan Antrian digunakan petugas loket untuk
                 memanggil antrian pengunjung.
               </CardHome>
