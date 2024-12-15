@@ -96,10 +96,9 @@ const PanggilanPage: React.FC = () => {
     fetchAllQueue();
     const interval = setInterval(() => {
       fetchAllQueue();
-    }, 1000);
-    return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
-  // Function to handle speak button click
 
   const handleSpeak = (
     queueNumber: number,
