@@ -46,11 +46,17 @@ const PanggilanPage: React.FC = () => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchInfoData = async () => {
     try {
       const data = await fetchAllData();
       setAllData(data);
+    } catch (error) {
+      console.error("Error loading data:", error);
+    }
+  };
 
+  const fetchAllQueue = async () => {
+    try {
       const allDataQueue = await fetchAllNumber();
       setQueueData(allDataQueue);
     } catch (error) {
@@ -78,14 +84,21 @@ const PanggilanPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    fetchInfoData();
     const interval = setInterval(() => {
-      fetchData();
+      fetchInfoData();
     }, 5000);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    fetchAllQueue();
+    const interval = setInterval(() => {
+      fetchAllQueue();
+    }, 1000);
+    return () => clearInterval(interval); // Bersihkan interval saat komponen unmount
+  }, []);
   // Function to handle speak button click
 
   const handleSpeak = (
